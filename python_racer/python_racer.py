@@ -6,6 +6,9 @@ class PythonRacer:
     self.length = length
     self.players_positions = { players[0]: 0, players[1]: 0 }
 
+  # make dict to hold all the players and their positions
+  # REFACTOR OPPORTUNITY
+
   # Returns +true+ if one of the players has reached
   # the finish line, +false+ otherwise
   def finished(self):

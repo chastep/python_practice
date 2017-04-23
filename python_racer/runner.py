@@ -4,9 +4,11 @@ from die import Die
 from python_racer import PythonRacer
 from reset_screen import reset_screen
 
-die = Die(6)
+sides = eval(input("How big of a die to you want? "))
+die = Die(sides)
+length = eval(input("How far are we going? "))
 players = ['a', 'b']
-game = PythonRacer(players, die)
+game = PythonRacer(players, die, length)
 reset_screen()
 game.board_visualization()
 time.sleep(2)
