@@ -9,21 +9,21 @@ class PythonRacer:
   # Returns +true+ if one of the players has reached
   # the finish line, +false+ otherwise
   def finished(self):
-    if self.players_positions[0] >= self.length - 1:
+    if self.players_positions[self.players[0]] >= self.length - 1:
       return True
-    elif self.players_positions[1] >= self.length - 1:
+    elif self.players_positions[self.players[1]] >= self.length - 1:
       return True
-    else
+    else:
       return False
 
   # Returns the winner if there is one, +nil+ otherwise
   def winner(self):
-    if self.players_positions[0] == self.length - 1 and self.players_positions[1] == self.length - 1:
+    if self.players_positions[self.players[0]] == self.length - 1 and self.players_positions[self.players[1]] == self.length - 1:
       print("It's a tie!!!")
-    elif self.players_positions[0] >= self.length - 1:
-      print("The winner is", self.players[0], "!!!")
-    elif self.players_positions[1] >= self.length - 1:
-      print("The winner is", self.players[1], "!!!")
+    elif self.players_positions[self.players[0]] >= self.length - 1:
+      print("The winner is player " + self.players[0] + "!!!")
+    elif self.players_positions[self.players[1]] >= self.length - 1:
+      print("The winner is player " + self.players[1] + "!!!")
       return self.players[1]
     
   # Rolls the die and advances +player+ accordingly
@@ -38,8 +38,8 @@ class PythonRacer:
   def board_visualization(self):
     player1_track = [' '] * self.length
     player2_track = [' '] * self.length
-    player1_track[self.players_positions[0]] = self.players[0]
-    player2_track[self.players_positions[1]] = self.players[1]
+    player1_track[self.players_positions[self.players[0]]] = self.players[0]
+    player2_track[self.players_positions[self.players[1]]] = self.players[1]
     print('| '.join(player1_track))
     print('| '.join(player2_track))
 

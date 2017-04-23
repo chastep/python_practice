@@ -13,7 +13,7 @@ time.sleep(2)
 
 while game.finished() == False:
   reset_screen()
-  for players in game.players:
+  for player in game.players:
     game.advance_player(player)
   game.board_visualization()
   time.sleep(.25)
