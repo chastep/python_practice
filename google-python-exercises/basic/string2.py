@@ -16,8 +16,12 @@
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
 def verbing(s):
-  # +++your code here+++
-  return
+  if s[-3:] == "ing" and len(s) >= 3:
+    return s + "ly"
+  elif len(s) >= 3:
+    return s + "ing"
+  else:
+    return s
 
 
 # E. not_bad
@@ -29,8 +33,12 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-  # +++your code here+++
-  return
+  if s.find("not") < s.find("bad"):
+    substr = s[s.find("not"):(s.find("bad") + 3)]
+    return s.replace(substr, "good")
+  else:
+    return s
+
 
 
 # F. front_back
@@ -41,8 +49,17 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-  # +++your code here+++
-  return
+  def even(s):
+    if len(s) % 2 == 0:
+      firstpart, secondpart = s[:len(s)/2], s[len(s)/2:]
+      return firstpart, secondpart
+    else:
+      fpart, spart = s[:((len(s) / 2) + 1)], s[((len(s)/2) + 1):]
+      return fpart, spart
+
+  afront, aback = even(a)
+  bfront, bback = even(b)
+  return afront + bfront + aback + bback
 
 
 # Simple provided test() function used in main() to print
@@ -60,7 +77,7 @@ def test(got, expected):
 def main():
   print 'verbing'
   test(verbing('hail'), 'hailing')
-  test(verbing('swiming'), 'swimingly')
+  test(verbing('swimming'), 'swimmingly')
   test(verbing('do'), 'do')
 
   print
